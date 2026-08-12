@@ -5,19 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.4.0/dist/aframe-extras.min.js"></script>
+    <script src="https://aframe.io"></script>
+    <script src="https://jsdelivr.net"></script>
+    <script src="https://jsdelivr.net"></script>
 
     <title>Spider</title>
+
+    <script>
+        AFRAME.registerComponent('fix-camera', {
+            init: function () {
+                this.el.addEventListener('renderstart', () => {
+                    const camera = this.el.camera;
+                    if (camera) {
+                        camera.near = 0.001;
+                        camera.far = 10000;
+                        camera.updateProjectionMatrix();
+                    }
+                });
+            }
+        });
+    </script>
 </head>
 
 <body>
-    
+
+
     <a-scene
+        fix-camera
         mindar-image="imageTargetSrc: assets/targets.mind; filterMinCF: 0.0001; filterBeta: 0.001;"
         color-space="sRGB"
-        renderer="colorManagement: true; sortObjects: true;"
+        renderer="colorManagement: true;"
         vr-mode-ui="enabled: false"
         device-orientation-permission-ui="enabled: false">
 
@@ -58,3 +75,4 @@
 </body>
 
 </html>
+    

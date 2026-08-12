@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script src="https://aframe.io"></script>
-    <script src="https://jsdelivr.net"></script>
-    <script src="https://jsdelivr.net"></script>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.4.0/dist/aframe-extras.min.js"></script>
 
     <title>Spider</title>
 </head>
@@ -41,17 +41,17 @@
             look-controls="enabled: false">
         </a-camera>
 
-        
+        <a-entity mindar-image-target="targetIndex: 0">
 
              <a-gltf-model
                 src="#spider"
                 position="0 0 0"
                 rotation="0 0 0"
-                scale="0.8 0.8 0.8" 
+                scale="1 1 1"
                 animation-mixer="clip: *; loop: repeat; autoplay: true">
             </a-gltf-model>
 
-        
+        </a-entity>
 
     </a-scene>
 
